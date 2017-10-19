@@ -1,0 +1,43 @@
+{
+    "name": "emgag/content-info",
+    "description": "Display additional info about content for editors in backend.",
+    "type": "bolt-extension",
+    "keywords": [
+        "backend",
+        "info",
+        "panel"
+    ],
+    "require": {
+        "php": ">=7.0",
+        "bolt/bolt": "^3.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.7"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Matthias Blaser",
+            "email": "mb@emgag.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Bolt\\Extension\\Emgag\\ContentInfo\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Bolt\\Extension\\Emgag\\ContentInfo\\Tests\\": "tests",
+            "Bolt\\Tests\\": "vendor/bolt/bolt/tests/phpunit/unit/"
+        }
+    },
+    "extra": {
+        "bolt-assets": "web",
+        "bolt-class": "Bolt\\Extension\\Emgag\\ContentInfo\\ContentInfoExtension",
+        "bolt-icon": "bolt-icon.png",
+        "bolt-screenshots": [
+            "screenshots/screenshot1.png"
+        ]
+    }
+}

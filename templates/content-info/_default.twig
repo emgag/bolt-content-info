@@ -1,0 +1,39 @@
+{% block publish_status %}
+    {% if record.status != "published" %}
+        <div class="alert alert-warning">{{ __('general.phrase.not-published') }}!</div>
+    {% endif %}
+{% endblock %}
+
+{% block record_info %}
+    {% if record.link %}
+        <i class="fa fa-chain fa-fw"></i> <a
+            href="{{ record.link() }}">{{ url('contentlink', { contenttypeslug: record.contentType.slug, slug: record.slug }) }}</a>
+        <br>
+    {% endif %}
+    <br>
+{% endblock %}
+
+{% block record_info_image %}
+    <strong><i class="fa fa-picture-o"></i> {{ __('content-info.images') }}</strong>
+    <ul>
+        {% if record.image %}
+            <li>
+                <a href="{{ absolute_url(asset(record.image.file, 'files')) }}">{{ absolute_url(asset(record.image.file, 'files')) }}</a>
+            </li>
+        {% endif %}
+    </ul>
+{% endblock %}
+
+{% block record_info_dates %}
+    <strong><i class="fa fa-calendar"></i> {{ __('content-info.dates') }}</strong>
+    <ul>
+        <li>{{ __('general.phrase.created-on-colon') }} {{ record.datecreated|date(__('content-info.date-format')) }}</li>
+        <li>{{ __('general.phrase.last-edited-on-colon') }} {{ record.datechanged|date(__('content-info.date-format')) }}</li>
+        {% if record.datepublish %}
+            <li>{{ __('general.phrase.publication-date-colon') }} {{ record.datepublish|date(__('content-info.date-format')) }}</li>
+        {% endif %}
+        {% if record.datedepublish %}
+            <li>{{ __('general.phrase.depublication-date-colon') }} {{ record.datedepublish|date(__('content-info.date-format')) }}</li>
+        {% endif %}
+    </ul>
+{% endblock %}

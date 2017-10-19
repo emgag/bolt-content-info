@@ -1,0 +1,26 @@
+<script>
+    $(function(){
+        Bolt.events.on('Bolt.Content.Save.Always', function(e){
+            var contentInfo = '{{ path('content-info', {'contentType': record.contenttype.slug, 'id': record.id }) }}';
+
+            $('#content-info-loading').show();
+            $('#content-info').hide();
+
+            $.get(contentInfo, function(data){
+                $('#content-info').show().html(data);
+                $('#content-info-loading').hide();
+            })
+        });
+    })
+</script>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <i class="fa fa-info fa-fw"></i> {{ __('content-info.panel.title') }}
+    </div>
+    <div class="panel-body" id="content-info-loading" style="display: none">
+        <i class="fa fa-spinner fa-pulse fa-fw"></i>
+    </div>
+    <div class="panel-body" id="content-info">
+        {{ include(recordTemplate) }}
+    </div>
+</div>
