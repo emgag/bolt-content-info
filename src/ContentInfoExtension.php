@@ -22,7 +22,7 @@ class ContentInfoExtension extends SimpleExtension
         $id          = $app['request']->attributes->get('id');
         $contentType = $app['request']->attributes->get('contenttypeslug');
 
-        if(!$id || !$contentType){
+        if (!$id || !$contentType) {
             return '';
         }
 
@@ -35,7 +35,7 @@ class ContentInfoExtension extends SimpleExtension
      * @param bool   $panel
      * @return string
      */
-    public function renderRecord(string $contentType, int $id, $panel = true): string
+    public function renderRecord(string $contentType, int $id, bool $panel = true): string
     {
         $app = $this->getContainer();
         /** @var \Twig_Environment $twig */

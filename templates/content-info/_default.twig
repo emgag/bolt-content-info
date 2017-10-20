@@ -7,9 +7,10 @@
 {% block record_info %}
     {% if record.link %}
         <i class="fa fa-chain fa-fw"></i> <a
-            href="{{ record.link() }}">{{ url('contentlink', { contenttypeslug: record.contentType.slug, slug: record.slug }) }}</a>
+            href="{{ record.link() }}">{{ absolute_url(record.link()) }}</a>
         <br>
     {% endif %}
+    {% block record_info_additional %}{% endblock %}
     <br>
 {% endblock %}
 
@@ -21,19 +22,27 @@
                 <a href="{{ absolute_url(asset(record.image.file, 'files')) }}">{{ absolute_url(asset(record.image.file, 'files')) }}</a>
             </li>
         {% endif %}
+        {% block record_info_image_additional %}{% endblock %}
     </ul>
 {% endblock %}
 
 {% block record_info_dates %}
     <strong><i class="fa fa-calendar"></i> {{ __('content-info.dates') }}</strong>
     <ul>
-        <li>{{ __('general.phrase.created-on-colon') }} {{ record.datecreated|date(__('content-info.date-format')) }}</li>
-        <li>{{ __('general.phrase.last-edited-on-colon') }} {{ record.datechanged|date(__('content-info.date-format')) }}</li>
+        <li>
+            {{ __('general.phrase.created-on-colon') }} {{ record.datecreated|localedatetime("%c") }}
+        <li>
+            {{ __('general.phrase.last-edited-on-colon') }} {{ record.datechanged|localedatetime("%c") }}
+        </li>
         {% if record.datepublish %}
-            <li>{{ __('general.phrase.publication-date-colon') }} {{ record.datepublish|date(__('content-info.date-format')) }}</li>
+            <li>
+                {{ __('general.phrase.publication-date-colon') }} {{ record.datepublish|localedatetime("%c") }}
+            </li>
         {% endif %}
         {% if record.datedepublish %}
-            <li>{{ __('general.phrase.depublication-date-colon') }} {{ record.datedepublish|date(__('content-info.date-format')) }}</li>
+            <li>
+                {{ __('general.phrase.depublication-date-colon') }} {{ record.datedepublish|localedatetime("%c") }}
+            </li>
         {% endif %}
     </ul>
 {% endblock %}
