@@ -35,7 +35,7 @@
     "extra": {
         "bolt-class": "Bolt\\Extension\\Emgag\\ContentInfo\\ContentInfoExtension",
         "bolt-screenshots": [
-            "screenshots/screenshot1.png"
+            "screenshots/screenshot1.png",
             "screenshots/screenshot2.png"
         ]
     }
