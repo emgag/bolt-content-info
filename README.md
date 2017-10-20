@@ -3,9 +3,9 @@ Content Info
 
 Extension adding a panel to the content editor screen containing additional info for the current entry, such as the URL, image or custom data using a twig template. The contents of this panel can be overridden for each contenttype. 
 
-![screenshot1](/screenshots/screeenshot1.png)
+![screenshot1](/screenshots/screeenshot1.png?raw=true)
 
-![screenshot2](/screenshots/screeenshot2.png)
+![screenshot2](/screenshots/screeenshot2.png?raw=true)
 
 ### Requirements
 
